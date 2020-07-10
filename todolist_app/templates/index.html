@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+{% load  static %}
+
+{% block title %}
+Welcome to home page
+{% endblock title %}
+
+
+{% block container %}
+<h1>welcome to home page</h1>
+    <div class="row mt-5">
+        <div class="col-4">
+            <img src="{% static 'images/laptop.jpg' %}" alt="laptop" width="400" height="300">
+        </div>
+        <div class="col-4">
+            <img src="{% static 'images/laptop.jpg' %}" alt="laptop" width="400" height="300" >
+        </div>
+        <div class="col-4">
+            <img src="{% static 'images/laptop.jpg' %}" alt="laptop" width="400" height="300" >
+        </div>
+    </div>
+    <div class="row mt-5">
+        <p>paragraph 1</p>
+    </br>
+        <p>paragraph 2</p>
+    </br>
+        <p>paragraph 3</p>
+    </div>
+
+{% endblock container %}

@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+
+{% block title %}
+Edit Task
+{% endblock title %}
+
+
+{% block container %}
+</br>
+
+{% if task_obj.manage == request.user %}
+    <form method="POST" class="row">
+        {% csrf_token %}
+        <label class="col-lg-2">
+        </label>
+        <input type="text" class="form-control col-lg-8" name="task" placeholder="{{ task_obj.task }}" value="{{ task_obj.task }}">
+        <input type="hidden" name="done" value="{{ task.obj.done }}">
+        <button type="submit" class="btn btn-primary col-lg-1.">update task</button>
+    </form>
+{% else %}
+    <p>You do not have access to this page</p>
+
+{% endif %}
+    
+{% endblock container %}

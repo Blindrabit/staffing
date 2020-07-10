@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+{% load crispy_forms_tags %}
+
+{% block title %}
+{{ user.username }}'s Profile Page
+{% endblock title %}
+
+
+{% block container %}
+<div class='container'>
+    <div class="media">
+        <img class="rounded-circle account-img" src="{{ user.profile.image.url }}">
+        <div class="media-body">
+            <h2 class="account-heading">{{ user.username }}</h2>
+            <p class="text-secondary">{{ user.email }}</p>
+            <p class="text-secondary">{{ user.profile.dbs }}</p>
+            <p class="text-secondary">{{ user.profile.area }}</p>
+        </div>
+    </div>
+    <form method="POST" enctype="multipart/form-data" class="mt-5 col-6">
+        {% csrf_token %}
+        {{ u_form|crispy }}
+        {{ p_form|crispy }}
+        <button class="btn btn-primary mb-5" type="submit">Save Changes</button>
+    </form>
+</div>
+{% endblock container %}
